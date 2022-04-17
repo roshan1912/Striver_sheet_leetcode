@@ -4,8 +4,13 @@ class Solution {
         Map<Integer, Integer> counts = new HashMap<>();
         for(int num: arr) counts.put(num, counts.getOrDefault(num, 0) + 1);
         
+        // System.out.println(counts); check
+        
         PriorityQueue<Integer> maxHeap = new PriorityQueue<>((a, b) -> counts.get(b) - counts.get(a));
+        
         maxHeap.addAll(counts.keySet());
+        
+        // System.out.println(maxHeap); checck
         
         int n=arr.length/2;
         while(size < n) {
