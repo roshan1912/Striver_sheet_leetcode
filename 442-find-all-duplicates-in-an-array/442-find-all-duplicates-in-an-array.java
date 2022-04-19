@@ -5,9 +5,13 @@ class Solution {
             map.put(item, map.getOrDefault(item, 0)+1);
         }
         List<Integer> ans = new ArrayList<>();
-        for(Map.Entry<Integer,Integer> entry :map.entrySet()){
-            if(entry.getValue()>1)
-                ans.add(entry.getKey());
+        Set<Integer> keys = map.keySet();
+        for(int val : keys){
+            if(map.containsKey(val)){
+                if(map.get(val) == 2){
+                    ans.add(val);
+                }
+            }
         }
         return ans;
     }
