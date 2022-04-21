@@ -1,21 +1,13 @@
 class Solution {
     public int distributeCandies(int[] candyType) {
-        Map<Integer,Integer> map = new HashMap<>();
-        for(int item:candyType){
-            if(map.containsKey(item)){
-                int of = map.get(item);
-                map.put(item,of+1);
-            }
-            map.put(item,1);
+        HashSet<Integer> s=new HashSet<>();
+        for(int i=0;i<candyType.length;i++){
+            s.add(candyType[i]);
         }
-        int val=0;
-        int n=candyType.length/2;
-        int size = map.size();
-        if(size==n){
-            return n;
-        }else{
-             val=Math.min(n,size);
+        int t=candyType.length/2;
+        if(t>s.size()){
+            return s.size();
         }
-        return val;
+        return t;
     }
 }
