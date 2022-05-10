@@ -12,7 +12,7 @@ class Solution {
         for(; i <= 9; i++){
             val.add(i);
             backtrack(k-1, n-i, i+1, new ArrayList<>(val));
-            val.remove(val.size()-1); //Backtrack
+            val.remove(val.size()-1);
         }
     }
     
