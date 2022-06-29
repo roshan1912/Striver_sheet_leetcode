@@ -10,6 +10,6 @@ class Solution {
             }
             map.put(numbers[i], i);
         }
-    return res;
+        return res;
     }
 }
