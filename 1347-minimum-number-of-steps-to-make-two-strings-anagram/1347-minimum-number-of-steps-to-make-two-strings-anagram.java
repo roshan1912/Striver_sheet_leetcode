@@ -1,20 +1,23 @@
 class Solution {
+    final static int a = 97;
+    final static int size = 26;
     public int minSteps(String s, String t) {
-        Map<Character,Integer> map = new HashMap<>();
-        for(int i=0;i<s.length();i++){
-            char ch = s.charAt(i);
-            map.put(ch,map.getOrDefault(ch,0)+1);
+        int[] arr = new int[size];
+        int l = s.length();
+        char[] sa = s.toCharArray();
+        char[] ta = t.toCharArray();
+        for (int i = 0; i < l; i++) {
+            int sci = sa[i] - a;
+            int tci = ta[i] - a;
+            arr[sci] += 1;
+            arr[tci] -= 1;
         }
-        int count=0;
-        for(int i=0;i<t.length();i++){
-            char c = t.charAt(i);
-            if(map.containsKey(c) && map.get(c)>=1){
-                int of = map.get(c);
-                map.put(c,of-1);
-            }else{
-                count++;
+        int ans = 0;
+        for (int n : arr) {
+            if (n > 0) {
+                ans += n;
             }
         }
-        return count;
+        return ans;
     }
 }
