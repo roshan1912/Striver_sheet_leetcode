@@ -1,7 +1,5 @@
 class Solution {
     public int[][] kClosest(int[][] points, int k) {
-        int m=points.length;
-        int n=points[0].length;
         int[][] ans = new int[k][2];
         PriorityQueue<Pair<Integer,Pair<Integer,Integer>>> pq = new PriorityQueue<>((a,b)->b.getKey()-a.getKey());
         for(int i=0;i<points.length;i++){
@@ -13,7 +11,6 @@ class Solution {
         while(!pq.isEmpty()){
             int x = pq.peek().getValue().getKey();
             int y = pq.peek().getValue().getValue();
-            // =p;
             ans[id][0]=x;
             ans[id][1]=y;
             id++;
