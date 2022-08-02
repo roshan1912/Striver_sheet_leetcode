@@ -1,29 +1,21 @@
 class MyHashMap {
-    int arr[];
+    int[] arr;
     public MyHashMap() {
-        arr = new int[100];
+        int size = 1000000+1;
+        arr = new int[size];
+        Arrays.fill(arr,-1);
     }
     
     public void put(int key, int value) {
-        if(arr.length<=key)
-            extend(key);
-        arr[key]=value+1;
-        
+        arr[key]=value;
     }
     
     public int get(int key) {
-        if(key>=arr.length)
-             extend(key);
-        return arr[key]-1;
+        return arr[key];
     }
     
     public void remove(int key) {
-       if(key>=arr.length)
-             extend(key);
-        arr[key]=0;
-    }
-    public void extend(int key){
-        arr= Arrays.copyOf(arr, key+2); 
+        arr[key]=-1;
     }
 }
 
